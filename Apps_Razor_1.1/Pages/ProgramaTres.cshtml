@@ -1,0 +1,107 @@
+﻿@page
+@model Apps_Razor_1._1.Pages.ProgramaTresModel
+@{
+}
+
+<h3>Operacion Matematicas</h3>
+<br />
+<form method="post">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="a" asp-for="a">
+                    <label for="floatingInput">Ingresa tu a: </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="b" asp-for="b">
+                    <label for="floatingInput">Ingresa tu b: </label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="x" asp-for="x">
+                    <label for="floatingInput">Ingresa tu x: </label>
+                </div>
+           </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="y" asp-for="y">
+                    <label for="floatingInput">Ingresa tu y: </label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="n" asp-for="n">
+                    <label for="floatingInput">Ingresa tu n: </label>
+                </div>
+            </div>
+            <div class="col">
+                    
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                Solucion Uno
+            </div>
+            <div class="col">
+                Solucion Dos
+            </div>
+        </div>
+        <br />
+        <div class="row align-items-start">
+            <div class="col" style="text-align:center">
+                <h6>((@Model.a * @Model.x) + (@Model.b * @Model.y))<sup>@Model.n</sup> = @Model.solucion_uno</h6>
+            </div>
+            <div class="col" style="text-align:center">
+                @{
+                    double resultado_general = 0;
+                    for (var i = 0; i <= Model.n; i++)
+                    {
+                        double factorial1 = Factorial(Model.n);
+                        double factorial2 = ((Factorial(i)) * Factorial((Model.n - i)));
+                        double factorial = factorial1 / factorial2;
+                        int xy = Model.x * Model.a;
+                        int nf = Model.n - i;
+                        int ba = Model.b * Model.y;
+                        double resultado = factorial * Math.Pow(xy, nf) * Math.Pow(ba, i);
+                        resultado_general += resultado;
+                        <h6>
+                            k @i = (@Model.n @i) (@Model.a * @Model.x) <sup>(@Model.n - @i)</sup> (@Model.b * @Model.y) <sup>@i</sup>
+                            = (@factorial) (@xy) <sup>@nf</sup> (@factorial) <sup>@i</sup> = @resultado
+                        </h6>
+                    }
+                    <h6>El resultado es: @resultado_general</h6>
+                    static long Factorial(int n)
+                    {
+                        if (n == 0 || n == 1)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            long result = 1;
+
+                            for (int i = 1; i <= n; i++)
+                            {
+                                result *= i;
+                            }
+                            return result;
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <input type="submit" value="Solucionar" class="btn_program" />
+</form>

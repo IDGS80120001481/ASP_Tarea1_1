@@ -1,0 +1,25 @@
+﻿@page
+@model Apps_Razor_1._1.Pages.ProgramaDosModel
+@{
+}
+
+
+<h3>Metodo de Encriptacion</h3>
+<br />
+<form method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Frase" asp-for="frase">
+        <label for="floatingInput">Ingresa tu frase: </label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="n" asp-for="n">
+        <label for="floatingInput">Ingresa tu n: </label>
+    </div>
+    <select class="form-select" aria-label="Selecciona el método a realizar" asp-for="opcion">
+        <option selected>Selecciona el método a realizar</option>
+        <option value="Encriptar">Encriptar</option>
+        <option value="Desencriptar">Desencriptar</option>
+    </select>
+    <textarea>@Model.encriptada</textarea>
+    <input type="submit" value="Encriptar" class="btn_program" />
+</form>

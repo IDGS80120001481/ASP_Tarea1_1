@@ -1,0 +1,87 @@
+﻿@page
+@model Apps_Razor_1._1.Pages.ProgramaUnoModel
+@{
+}
+
+
+<h3>Calcular IMC</h3>
+<br />
+<form method="post">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="Peso" asp-for="Peso">
+                    <label for="floatingInput">Ingresa tu peso: </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" placeholder="Altura" asp-for="Altura">
+                    <label for="floatingInput">Ingresa tu altura: </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Calcular" class="btn_program" />
+
+    @switch(Model.imc)
+    {
+        case double imc when imc < 18:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_anorexia.png" alt="Alternate Text" style="width: 15%" />
+                </div>
+            }
+            break;
+        case double imc when imc > 18 && imc <= 25:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_normal.png" alt="Alternate Text" style="width: 15%"/>
+                </div>
+            }
+            break;
+        case double imc when imc > 25 && imc <= 27:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_sobrepeso.png" alt="Alternate Text" style="width: 15%" />
+                </div>
+            }
+            break;
+        case double imc when imc > 27 && imc <= 30:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_obesidadl.png" alt="Alternate Text" style="width: 15%" />
+                </div>
+            }
+            break;
+        case double imc when imc > 30 && imc <= 40:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_obesidadll.png" alt="Alternate Text" style="width: 15%" />
+                </div>
+            }
+            break;
+        default:
+            if (Model.imc != 0)
+            {
+                <div>
+                    <strong>IMC = @Model.imc</strong>
+                    <img src="~/resources/imc_obesidadlll.png" alt="Alternate Text" style="width: 15%" />
+                </div>
+            }
+            break;
+    }
+
+
+</form>

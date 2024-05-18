@@ -1,0 +1,52 @@
+﻿@page
+@model Apps_Razor_1._1.Pages.ProgramaCuatroModel
+@{
+}
+
+
+<form method="post">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <h6>La suma del arreglo es: @Model.suma</h6>
+            </div>
+            <div class="col">
+                <h6>La media del arreglo es: @Model.media</h6>
+            </div>
+            <div class="col">
+                <h6>La mediana del arreglo es: @Model.mediana</h6>
+            </div>
+            <div class="col">
+                <h6>La moda del arreglo es: @Model.moda</h6>
+            </div>
+        </div>
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                @for(var i = 1; i < 21; i++)
+                {
+                    <th scope="col">@i</th>
+                }
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (int numero in @Model.numeros)
+                {
+                    <td>@numero</td>
+                }
+            </tr>
+            <tr>
+                @foreach (int ordenado in Model.ordenados)
+                    {
+                        <td>@ordenado</td>
+                    }
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="submit" value="Generar" class="btn_program" />
+</form>

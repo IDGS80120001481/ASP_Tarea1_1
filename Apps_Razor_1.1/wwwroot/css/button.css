@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.btn_program {
+    padding: 14px 9px;
+    border: 1px solid #1F618D;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background-color: #1F618D;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
